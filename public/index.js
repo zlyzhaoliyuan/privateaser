@@ -214,4 +214,41 @@ for(var i = 0; i<events.length; i++)
     }
 }
 
+//step5
+
+for(var i = 0; i<actors.length; i++)
+{
+    for(var j = 0; j < events.length; j++)
+    {
+        if(actors[i].eventId == events[j].id)
+        {
+            for (var k = 0; k < actors[i].payment.length; k++)
+            {
+                if (actors[i].payment[k].who == 'booker')
+                {
+                    var additional = events[i].persons * 1;
+                    actors[i].payment[k].amount = events[j].price + additional;
+                }
+                else if (actors[i].payment[k].who == 'bar')
+                {
+                    actors[i].payment[k].amount = events[j].price * 0.7;
+                }
+                else if (actors[i].payment[k].who == 'insurance')
+                {
+                    actors[i].payment[k].amount = events[j].commission.insurance;
+                }
+                else if (actors[i].payment[k].who == 'treasury')
+                {
+                    actors[i].payment[k].amount = events[j].commission.treasury;
+                }
+                else if (actors[i].payment[k].who == 'privateaser')
+                {
+                    actors[i].payment[k].amount = events[j].commission.privateaser + additional;
+                }
+            }
+        }
+    }
+}
+
 console.log(events);
+console.log(actors);
