@@ -149,3 +149,35 @@ const actors = [{
 console.log(bars);
 console.log(events);
 console.log(actors);
+
+
+//step2
+
+for(var i = 0; i<events.length; i++)
+{
+    for(var j = 0; j < bars.length; j++)
+    {
+        if(events[i].barId == bars[j].id)
+        {
+
+            if (events[i].persons >= 60)
+            {
+                events[i].price = events[i].time * bars[j].pricePerHour + events[i].persons * bars[j].pricePerPerson * 0.5;
+            }
+            else if (events[i].persons >= 20)
+            {
+                events[i].price = events[i].time * bars[j].pricePerHour + events[i].persons * bars[j].pricePerPerson * 0.7;
+            }
+            else if (events[i].persons >= 10)
+            {
+                events[i].price = events[i].time * bars[j].pricePerHour + events[i].persons * bars[j].pricePerPerson * 0.9;
+            }
+            else
+            {
+                events[i].price = events[i].time * bars[j].pricePerHour + events[i].persons * bars[j].pricePerPerson;
+            }
+        }
+    }
+}
+
+console.log(events);
