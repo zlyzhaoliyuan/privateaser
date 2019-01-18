@@ -180,4 +180,19 @@ for(var i = 0; i<events.length; i++)
     }
 }
 
+//step3
+
+for(var i = 0; i<events.length; i++)
+{
+    for(var j = 0; j < bars.length; j++)
+    {
+        if(events[i].barId == bars[j].id)
+        {
+            events[i].commission.insurance = events[i].price * 0.3 * 0.5;
+            events[i].commission.treasury = events[i].persons * 1;
+            events[i].commission.privateaser = events[i].price * 0.3 -  events[i].commission.insurance - events[i].commission.treasury;
+        }
+    }
+}
+
 console.log(events);
