@@ -195,4 +195,23 @@ for(var i = 0; i<events.length; i++)
     }
 }
 
+//step4
+
+for(var i = 0; i<events.length; i++)
+{
+    for(var j = 0; j < bars.length; j++)
+    {
+        if(events[i].barId == bars[j].id)
+        {
+            if (events[i].options.deductibleReduction == true)
+            {
+                var additional = events[i].persons * 1;
+                events[i].price = events[i].price + 200;
+                events[i].commission.privateaser += additional;
+            }
+            else events[i].price += 5000;
+        }
+    }
+}
+
 console.log(events);
